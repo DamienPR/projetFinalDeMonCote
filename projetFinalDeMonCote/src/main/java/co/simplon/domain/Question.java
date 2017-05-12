@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,15 +15,17 @@ import lombok.Setter;
 public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;	
+	private int id;	
 	
 	private String content;
 	
 	@ManyToOne
-	@JoinColumn(name="diary_id")
 	private Diary diary;
 	
 	@ManyToOne
-	@JoinColumn(name="role_id")
 	private Role role;
+	
+	//relation unidirectionnelle qui permet de récupérer les réponses aux questions uniquement
+	@OneToOne
+	private Answer answer;
 }

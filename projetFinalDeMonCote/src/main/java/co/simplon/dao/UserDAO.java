@@ -7,4 +7,6 @@ import co.simplon.domain.User;
 
 @Repository
 public interface UserDAO extends CrudRepository<User, Long> {
+	
+	//findByEmail pour springsecurity
 }

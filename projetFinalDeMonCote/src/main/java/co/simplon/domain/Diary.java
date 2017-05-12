@@ -1,13 +1,12 @@
 package co.simplon.domain;
 
-import java.security.Timestamp;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -19,23 +18,24 @@ import lombok.Setter;
 public class Diary {
 	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;	
+	private int id;	
 	
 	private String name;
 	
-	private Timestamp startDate;
+	private Date startDate;
 	
-	private Timestamp endDate;
+	private Date endDate;
 	
 	private String introduction;
 	
 	@OneToMany
+	//(mapped by="")
 	private List<Question> questions;
 	
 	@OneToMany
+	//(mapped by="") utilisé uniquement en relation unidirectionnelle
 	private List<Conclusion> conclusions;
 	
 	@ManyToOne
-	@JoinColumn(name = "promo_id")
 	private Promo promo;
 }

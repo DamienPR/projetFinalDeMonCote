@@ -33,7 +33,7 @@ public class UserController {
 	}
 	
 	@PutMapping(value="updateUser")
-	public User update(User user){
+	public User update(@RequestBody User user){
 		return service.save(user);
 	}
 	

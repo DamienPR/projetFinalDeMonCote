@@ -33,7 +33,7 @@ public class PromoController {
 	}
 	
 	@PutMapping(value="updatePromo")
-	public Promo update(Promo promo){
+	public Promo update(@RequestBody Promo promo){
 		return service.updatePromo(promo);
 	}
 }

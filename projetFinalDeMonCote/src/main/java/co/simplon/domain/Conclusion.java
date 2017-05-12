@@ -13,7 +13,13 @@ import lombok.Setter;
 public class Conclusion {
 	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;	
+	private int id;	
 	
 	private String content;
+	
+//	a rajouter si besoin
+//	
+//	diary
+//	
+//	user
 }
