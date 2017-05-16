@@ -1,7 +1,7 @@
 package co.simplon.service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -18,13 +18,13 @@ public class PromoService {
 	@Autowired
 	private PromoDAO dao;
 	
-	public Map<Long, String> findAll(){
-		Iterable<Promo> result = dao.findAll();
-		Map<Long, String> map = new HashMap<>();
-		for(Promo promo : result){
-			map.put(promo.getId(), promo.getName());
+	public List<Promo> findAll(){
+		List<Promo> result = new ArrayList<Promo>();
+		Iterable<Promo> inter = dao.findAll();
+		for(Promo promo : inter){
+			result.add(promo);;
 		}
-		return map;
+		return result;
 	}
 	
 	public Promo savePromo(Promo promo){

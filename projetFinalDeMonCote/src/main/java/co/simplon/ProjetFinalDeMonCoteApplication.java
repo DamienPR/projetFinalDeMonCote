@@ -24,4 +24,4 @@ public class ProjetFinalDeMonCoteApplication {
 //3
 //@PathVariable pour get ou post une valeur, on peut mettre plusieurs données d'affilée
 //
-//
+//Tout ce qui est dans l'url est un get

@@ -29,11 +29,12 @@ public class Diary {
 	private String introduction;
 	
 	@OneToMany
-	//(mapped by="")
+//	utilisé uniquement en relation unidirectionnelle
+//	(mappedBy="diary")
 	private List<Question> questions;
 	
 	@OneToMany
-	//(mapped by="") utilisé uniquement en relation unidirectionnelle
+//	(mappedBy="diary") 
 	private List<Conclusion> conclusions;
 	
 	@ManyToOne

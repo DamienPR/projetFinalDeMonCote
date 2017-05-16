@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import co.simplon.domain.Role;
 
 @Repository
-public interface RoleDAO  extends CrudRepository<Role, Long>{
+public interface RoleDAO  extends CrudRepository<Role, Integer>{
 
 }

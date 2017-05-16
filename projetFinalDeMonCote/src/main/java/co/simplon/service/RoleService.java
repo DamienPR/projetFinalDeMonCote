@@ -1,7 +1,7 @@
 package co.simplon.service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -18,13 +18,13 @@ public class RoleService {
 	@Autowired
 	private RoleDAO dao;
 	
-	public Map<Long, String> findAll() {
-		Iterable<Role> result = dao.findAll();
-		Map<Long, String> map = new HashMap<>();
-		for (Role role : result) {
-			map.put(role.getId(), role.getName());			
+	public List<Role> findAll() {
+		List<Role> result = new ArrayList<Role>();
+		Iterable<Role> inter = dao.findAll();		
+		for (Role role : inter) {
+			result.add(role);			
 		}
-		return map;
+		return result;
 	}
 
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import co.simplon.domain.User;
 
 @Repository
-public interface UserDAO extends CrudRepository<User, Long> {
+public interface UserDAO extends CrudRepository<User, Integer> {
 	
 	//findByEmail pour springsecurity
 }

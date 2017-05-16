@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import co.simplon.domain.Diary;
 
 @Repository
-public interface DiaryDAO extends CrudRepository<Diary, Long>{
-
+public interface DiaryDAO extends CrudRepository<Diary, Integer> {
+	public Iterable<Diary> findByPromoId(int promoId);
 }

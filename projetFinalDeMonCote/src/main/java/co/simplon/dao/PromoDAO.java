@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import co.simplon.domain.Promo;
 
 @Repository
-public interface PromoDAO extends CrudRepository<Promo, Long> {
+public interface PromoDAO extends CrudRepository<Promo, Integer> {
 	public Promo findByName(String name);
 }

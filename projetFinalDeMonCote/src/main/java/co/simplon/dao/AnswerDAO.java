@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import co.simplon.domain.Answer;
 
 @Repository
-public interface AnswerDAO extends CrudRepository<Answer, Long>{
+public interface AnswerDAO extends CrudRepository<Answer, Integer>{
 
 }

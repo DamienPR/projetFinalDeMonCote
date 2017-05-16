@@ -1,7 +1,7 @@
 package co.simplon.service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -22,26 +22,14 @@ public class UserService {
 		return userDao.save(user);
 	}
 
-	//manque le rôle
-	 public Map<Long, String> findAll() {
-	 Iterable<User> result = userDao.findAll();
-	 Map<Long, String> map = new HashMap<>();
-	 for (User promo : result) {
-	 map.put(promo.getId(), promo.getFirstName());
+	 public List<User> findAll() {
+	 Iterable<User> inter = userDao.findAll();
+	 List<User> result = new ArrayList<User>();
+	 for (User user : inter){
+		 result.add(user);
 	 }
-	 return map;
+	 return result;
 	 }
-
-//	public Map<Long, String> findAll() {
-//		Iterable<User> result = userDao.findAll();
-//		List<User> result = new ArrayList<>();
-//		User user = new User();
-//		Promo promo = new Promo();
-//		for (User field : result) {
-//			
-//		}
-//		return result;
-//	}
 
 	public User update(User user) {
 		return userDao.save(user);
