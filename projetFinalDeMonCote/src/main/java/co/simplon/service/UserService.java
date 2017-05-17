@@ -28,22 +28,23 @@ public class UserService {
 	 return result;
 	 }
 	 
-	public List<User> SortForFindAll(List<User> userDTO) {
-		List<User> result = new ArrayList<User>();
-		for(User property : userDTO){
-			User user = new User();
-			user.setId(property.getId());
-			user.setFirstname(property.getFirstname());
-			user.setLastname(property.getLastname());
-			user.setEmail(property.getEmail());
-			user.setPassword(property.getPassword());
-			user.setRole(property.getRole());
-		}
+	private List<User> SortForFindAll(List<User> userDTO) {
+		 List<User> result = new ArrayList<User>();
+		 for(User property : userDTO) {
+			 User user = new User();
+			 user.setId(property.getId());
+			 user.setFirstname(property.getFirstname());
+			 user.setLastname(property.getLastname());
+			 user.setEmail(property.getEmail());
+			 user.setPassword(property.getPassword());
+			 user.setRole(property.getRole());
+			 result.add(user);
+		 }
 		return result;
 	}
 	 
-	 public List<User> findByRoleName(String string){
-		Iterable<User> inter = userDao.findByRoleName(string);
+	 public List<User> findByRoleName(String roleName){
+		Iterable<User> inter = userDao.findByRoleName(roleName);
 		List<User> userDTO = new ArrayList<User>();
 		for(User user : inter) {
 			userDTO.add(user);
@@ -52,7 +53,7 @@ public class UserService {
 		return result;
 	 }
 	 
-	 public List<User> SortForFindByRole(List<User> userDTO){
+	 private List<User> SortForFindByRole(List<User> userDTO){
 		 List<User> result = new ArrayList<User>();
 		 for(User property : userDTO) {
 			 User user = new User();
