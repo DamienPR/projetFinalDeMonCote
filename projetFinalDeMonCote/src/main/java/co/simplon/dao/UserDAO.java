@@ -10,5 +10,5 @@ public interface UserDAO extends CrudRepository<User, Integer> {
 	
 	//findByEmail pour springsecurity
 	
-	public Iterable<User> findByRoleName(String roleName);
+	public Iterable<User> findByRoleName(String string);
 }

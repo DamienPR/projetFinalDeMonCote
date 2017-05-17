@@ -9,10 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.simplon.dao.UserDAO;
-import co.simplon.domain.Answer;
-import co.simplon.domain.Conclusion;
-import co.simplon.domain.Promo;
-import co.simplon.domain.Role;
 import co.simplon.domain.User;
 
 @Service
@@ -46,8 +42,8 @@ public class UserService {
 		return result;
 	}
 	 
-	 public List<User> findByRoleName(String name){
-		Iterable<User> inter = userDao.findByRoleName(name);
+	 public List<User> findByRoleName(String string){
+		Iterable<User> inter = userDao.findByRoleName(string);
 		List<User> userDTO = new ArrayList<User>();
 		for(User user : inter) {
 			userDTO.add(user);
