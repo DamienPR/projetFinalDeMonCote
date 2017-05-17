@@ -1,7 +1,5 @@
 package co.simplon.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,14 +10,14 @@ import co.simplon.domain.Question;
 import co.simplon.service.QuestionService;
 
 @RestController
-@RequestMapping(value="api/question")
+@RequestMapping(value="api/questions")
 public class QuestionController {
 	
 	@Autowired
 	private QuestionService service;
 	
 	@PostMapping(value="/add")
-	public List<Question> save(@RequestBody List<Question> questions){
-		return service.save(questions);
+	public Question save(@RequestBody Question question){
+		return service.save(question);
 	}
 }

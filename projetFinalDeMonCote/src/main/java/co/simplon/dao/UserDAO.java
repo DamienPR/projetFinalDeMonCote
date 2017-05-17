@@ -9,4 +9,6 @@ import co.simplon.domain.User;
 public interface UserDAO extends CrudRepository<User, Integer> {
 	
 	//findByEmail pour springsecurity
+	
+	public Iterable<User> findByRoleName(String roleName);
 }

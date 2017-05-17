@@ -1,5 +1,8 @@
 package co.simplon.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +16,18 @@ import co.simplon.domain.Diary;
 public class DiaryService {
 
 		@Autowired
-		private DiaryDAO dao;
+		private DiaryDAO diaryDao;
+		
+		public List<Diary> findAll(){
+			List<Diary> result = new ArrayList<Diary>();
+			Iterable<Diary> inter = diaryDao.findAll();
+			for (Diary diary : inter){
+				result.add(diary);
+			}
+			return result;
+		}
 		
 		public Diary save(Diary diary){
-			return dao.save(diary);
+			return diaryDao.save(diary);
 		}
 }

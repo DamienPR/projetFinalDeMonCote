@@ -25,7 +25,7 @@ public class PromoController {
 		return service.findAll();
 	}
 	
-	@PostMapping(value="/create")
+	@PostMapping(value="/add")
 	public Promo save(@RequestBody Promo promo){
 		return service.savePromo(promo);
 	}

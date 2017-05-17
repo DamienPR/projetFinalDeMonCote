@@ -1,6 +1,5 @@
 package co.simplon.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -16,16 +15,9 @@ import co.simplon.domain.Question;
 public class QuestionService {
 
 	@Autowired
-	private QuestionDAO dao;
+	private QuestionDAO questionDao;
 	
-	//a modifier
-	public List<Question> save(List<Question> questions) {		
-		Iterable<Question> request = dao.save(questions);
-		List<Question> result = new ArrayList<>();
-		for (Question question : request) {
-			result.add(question);
-		}
-		return result;
+	public Question save(Question question) {
+		return questionDao.save(question);
 	}
-
 }
