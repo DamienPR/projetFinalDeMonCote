@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,8 @@ import co.simplon.domain.Diary;
 import co.simplon.service.DiaryService;
 
 @RestController
-@RequestMapping(value="api/diaries")
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping(value="api/diary")
 public class DiaryController {
 
 	@Autowired

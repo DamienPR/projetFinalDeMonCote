@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,7 +17,8 @@ import co.simplon.domain.User;
 import co.simplon.service.UserService;
 
 @RestController
-@RequestMapping(value = "api/users")
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping(value = "api/user")
 public class UserController {
 	
 	@Autowired
