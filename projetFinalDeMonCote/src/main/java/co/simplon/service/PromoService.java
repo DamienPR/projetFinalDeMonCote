@@ -16,11 +16,11 @@ import co.simplon.domain.Promo;
 public class PromoService {
 
 	@Autowired
-	private PromoDAO promoDao;
+	private PromoDAO promoRepo;
 	
 	public List<Promo> findAll(){
 		List<Promo> result = new ArrayList<Promo>();
-		Iterable<Promo> inter = promoDao.findAll();
+		Iterable<Promo> inter = promoRepo.findAll();
 		for(Promo promo : inter){
 			result.add(promo);;
 		}
@@ -28,10 +28,10 @@ public class PromoService {
 	}
 	
 	public Promo savePromo(Promo promo){
-		return promoDao.save(promo);
+		return promoRepo.save(promo);
 	}
 	
 	public Promo updatePromo(Promo promo){
-		return promoDao.save(promo);
+		return promoRepo.save(promo);
 	}
 }

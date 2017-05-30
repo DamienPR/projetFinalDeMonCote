@@ -27,12 +27,12 @@ public class PromoController {
 		return service.findAll();
 	}
 	
-	@PostMapping(value="/add")
+	@PostMapping
 	public Promo save(@RequestBody Promo promo){
 		return service.savePromo(promo);
 	}
 	
-	@PutMapping(value="/update")
+	@PutMapping
 	public Promo update(@RequestBody Promo promo){
 		return service.updatePromo(promo);
 	}

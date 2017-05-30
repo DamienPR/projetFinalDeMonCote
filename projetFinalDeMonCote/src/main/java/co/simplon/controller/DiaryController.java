@@ -27,10 +27,11 @@ public class DiaryController {
 	public List<Diary> findForReading(@RequestParam Optional<String> promoId, 
 											@RequestParam Optional<String> userRole, 
 												@RequestParam Optional<String> userId){
-//	if (promoId.isPresent() && userRole.isPresent()){
-			return service.findAll(promoId.get(), userRole.get(), userId.get());
-//		}		
-//		return result:
+	List<Diary> result = null;
+	if (promoId.isPresent() && userId.isPresent() && userRole.isPresent()){
+			result =  service.findAll(promoId.get(), userRole.get(), userId.get());
+		}		
+		return result;
 	}
 	
 	@PostMapping(value="/add")

@@ -19,38 +19,32 @@ public class DiaryService {
 		private DiaryDAO diaryDao;
 		
 		public List<Diary> findAll(String promoId, String userRole, String userId){
-			List<Diary> diaryDTO = new ArrayList<Diary>();
+			List<Diary> diaryDTO = new ArrayList<>();
 			Iterable<Diary> inter = diaryDao.findAll();
 			for (Diary diary : inter){
 				diaryDTO.add(diary);
 			}
-			List<Diary> result = sortForFindAll(diaryDTO, promoId, userRole, userId);
-			return result;
+			return sortForFindAll(diaryDTO, promoId, userRole, userId);
 		}
 		
 		private List<Diary> sortForFindAll(List<Diary> diaryDTO, String promoId, String userRole, String userId){
-			List<Diary> result = new ArrayList<Diary>();
+			List<Diary> result = new ArrayList<>();
 			for (Diary property : diaryDTO) {
-				if (("formateur").equals(userRole)){
-					Diary diary = new Diary();
-					diary.setId(property.getId());
-					diary.setName(property.getName());
-					diary.setStartDate(property.getStartDate());
-					diary.setEndDate(property.getEndDate());
-					diary.setIntroduction(property.getIntroduction());
-					result.add(diary);
-				}
-				else if (("formateur").equals(userRole)|| ("tuteur").equals(userRole)){
-					Diary diary = new Diary();
-					diary.setId(property.getId());
-					diary.setName(property.getName());
-					diary.setStartDate(property.getStartDate());
-					diary.setEndDate(property.getEndDate());
-					diary.setIntroduction(property.getIntroduction());
-					result.add(diary);
+				if (("formateur").equals(userRole)||("apprenant").equals(userRole)|| ("tuteur").equals(userRole)){
+					addNewDiaryToResultListFromProperties(result, property);
 				}
 			}
 			return result;
+		}
+
+		private void addNewDiaryToResultListFromProperties(List<Diary> result, Diary property) {
+			Diary diary = new Diary();
+			diary.setId(property.getId());
+			diary.setName(property.getName());
+			diary.setStartDate(property.getStartDate());
+			diary.setEndDate(property.getEndDate());
+			diary.setIntroduction(property.getIntroduction());
+			result.add(diary);
 		}
 		
 		public Diary save(Diary diary){

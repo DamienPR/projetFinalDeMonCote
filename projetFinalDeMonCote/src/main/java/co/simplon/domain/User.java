@@ -44,7 +44,4 @@ public class User {
 	
 	@OneToMany
 	private List<Conclusion> conclusions;
-	
-	@OneToMany
-	private List<Answer> answers;
 }
